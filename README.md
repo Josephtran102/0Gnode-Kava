@@ -30,7 +30,7 @@ git clone -b v0.1.0 https://github.com/0glabs/0g-chain.git
 source .profile
 ```
 ## 4.Variable settings:
-Change `your_node_name` and `wallet_name`
+Replace `your_node_name` and `wallet_name`
 If you need to change the port, please also proceed with the port change
 ```
 echo 'export MONIKER="your_node_name"' >> ~/.bash_profile
@@ -154,7 +154,7 @@ If the block height is set, you can create validator.
 
 ## 14. Wallet config, check EVM address:
 ### Add wallet:
-Change your `wallet_name`
+Replace your `wallet_name`
 ```
 0gchaind keys add "wallet_name" --eth
 ```
@@ -177,6 +177,55 @@ Change your `wallet_name`
 ### Check balance:
 ```
 0gchaind q bank balances $(0gchaind keys show "wallet_name" -a)
+```
+- Example:
+```
+0gchaind q bank balances $(0gchaind keys show josephtran -a)
+```
+*Result:*
+```
+balances:
+- amount: "9000000"
+  denom: ua0gi
+pagination:
+  next_key: null
+  total: "0"
+```
+### Create Validator:
+Replace:
+- Node name: "Your_node_name"
+- Wallet: "wallet_name"
+- Detail: "0G to the moon"
+
+```
+  0gchaind tx staking create-validator \
+  --amount=1000000ua0gi \
+  --pubkey=$(0gchaind tendermint show-validator) \
+  --moniker="Your_node_name" \
+  --chain-id=zgtendermint_16600-1 \
+  --commission-rate="0.10" \
+  --commission-max-rate="0.20" \
+  --commission-max-change-rate="0.01" \
+  --details="0G to the moon" \
+  --min-self-delegation="1" \
+  --from="wallet_name" \
+  --gas=auto \
+  --gas-adjustment=1.4
+```
+### Check Validator:
+```
+0gchaind q staking validator $(0gchaind keys show "wallet_name" --bech val -a)
+```
+
+# 0G Command line:
+## Delegate to your node:
+- Replace `<your_wallet>` and `<amount>`
+```
+0gchaind tx staking delegate $(0gchaind keys show <your_wallet> --bech val -a) <amount>ua0gi \
+--from <your_wallet> \
+--gas=auto \
+--gas-adjustment=1.4 \
+-y
 ```
 
 
