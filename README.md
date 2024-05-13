@@ -168,7 +168,7 @@ Replace your `wallet_name`
 ```
 0gchaind keys unsafe-export-eth-key "wallet_name"
 ```
-*Important keep your private key carefully to import Metamask*
+**Important keep your private key carefully to import Metamask*
 
 ### Faucet token:
 - Faucet link: https://faucet.0g.ai/
