@@ -212,6 +212,21 @@ Replace:
   --gas=auto \
   --gas-adjustment=1.4
 ```
+### Edit Validator:
+```
+0gchaind tx staking edit-validator \
+--commission-rate 0.1 \
+--commission-max-rate 0.2 \
+--commission-max-change-rate 0.01 \
+--moniker "$MONIKER" \
+--chain-id=zgtendermint_16600-1 \
+--identity "" \
+--website "" |
+--details "I love blockchain ❤️" \
+--from="wallet_name" \
+--gas=auto \
+--gas-adjustment=1.4
+```
 ### Check Validator:
 ```
 0gchaind q staking validator $(0gchaind keys show "wallet_name" --bech val -a)
