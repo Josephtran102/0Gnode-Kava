@@ -215,9 +215,6 @@ Replace:
 ### Edit Validator:
 ```
 0gchaind tx staking edit-validator \
---commission-rate 0.1 \
---commission-max-rate 0.2 \
---commission-max-change-rate 0.01 \
 --moniker "$MONIKER" \
 --chain-id=zgtendermint_16600-1 \
 --identity "" \
