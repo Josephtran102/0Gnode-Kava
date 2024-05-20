@@ -221,7 +221,7 @@ Replace:
 --moniker "$MONIKER" \
 --chain-id=zgtendermint_16600-1 \
 --identity "" \
---website "" |
+--website "" \
 --details "I love blockchain ❤️" \
 --from="wallet_name" \
 --gas=auto \
