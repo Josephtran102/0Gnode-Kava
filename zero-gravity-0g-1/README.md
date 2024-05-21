@@ -1,4 +1,23 @@
-# Introduction
+---
+cover: ../.gitbook/assets/0G-banner.png
+coverY: 0
+layout:
+  cover:
+    visible: true
+    size: hero
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+---
+
+# Zero Gravity (0G)
 
 About Zero Gravity (0G)
 
