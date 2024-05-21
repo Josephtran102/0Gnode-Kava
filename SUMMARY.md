@@ -1,7 +1,6 @@
 # Table of contents
 
 * [Zero Gravity (0G)](README.md)
-
-## Group 1
-
-* [Introduction](group-1/introduction.md)
+* [Introduction](introduction/README.md)
+  * [Page 1](introduction/page-1.md)
+  * [Page 2](introduction/page-2.md)
