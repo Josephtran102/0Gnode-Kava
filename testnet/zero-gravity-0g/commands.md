@@ -122,7 +122,7 @@ echo "0x$(0gchaind debug addr $(0gchaind keys show "wallet" -a) | grep hex | awk
 0gchaind tx slashing unjail --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.00252ua0gi -y
 ```
 
-## 💲 Token management:
+## 💰 Token management:
 
 ### Send token to another wallet:
 
