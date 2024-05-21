@@ -201,4 +201,77 @@ _<mark style="color:red;">\*You will have to wait a while until it syncs</mark>_
 
 > _\*Replace your `"wallet_name"`_
 
-###
+{% hint style="danger" %}
+_\*Important: write your mnemonic phrase in a safe place_
+{% endhint %}
+
+### **Export to evm address:**
+
+```markup
+0gchaind keys unsafe-export-eth-key "wallet_name"
+```
+
+## 16.  **Faucet token:**
+
+* Faucet link: [https://faucet.0g.ai/](https://faucet.0g.ai/)
+
+## 17. Check Balance & Create Validator & Check Validator:
+
+### Check balance:
+
+```
+0gchaind q bank balances $(0gchaind keys show "wallet_name" -a)
+```
+
+### Create Validator:
+
+<pre><code>  0gchaind tx staking create-validator \
+  --amount=1000000ua0gi \
+  --pubkey=$(0gchaind tendermint show-validator) \
+  --moniker="Your_node_name" \
+  --chain-id=zgtendermint_16600-1 \
+  --commission-rate="0.10" \
+  --commission-max-rate="0.20" \
+  --commission-max-change-rate="0.01" \
+  --details="0G to the moon" \
+  --min-self-delegation="1" \
+  --from="wallet_name" \
+  --gas=auto \
+  --gas-adjustment=1.4
+<strong>  --gas-prices 0.00252ua0gi \
+</strong>  -y
+</code></pre>
+
+### Check Validator:
+
+```
+0gchaind q staking validator $(0gchaind keys show "wallet_name" --bech val -a)
+```
+
+### Edit Validator:
+
+```
+0gchaind tx staking edit-validator \
+--moniker "$MONIKER" \
+--chain-id=zgtendermint_16600-1 \
+--identity "" \
+--website "" \
+--details "I love blockchain ❤️" \
+--from="wallet_name" \
+--gas=auto \
+--gas-adjustment=1.4
+--gas-prices 0.00252ua0gi \
+-y
+```
+
+### Delegate:
+
+```
+0gchaind tx staking delegate $(0gchaind keys show <your_wallet> --bech val -a) <amount>ua0gi \
+--from <your_wallet> \
+--gas=auto \
+--gas-adjustment=1.4 \
+--gas-prices 0.00252ua0gi \
+-y
+```
+
