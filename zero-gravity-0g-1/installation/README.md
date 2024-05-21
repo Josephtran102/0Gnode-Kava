@@ -1,15 +1,15 @@
 # Installation
 
-## 1. Hardware requirement
+## Hardware requirement
 
 CPU : 8cores\
 Memory : 64GB\
 Storage : 1TB NVMe SSD\
 Bandwidth : 100mps for Download / Upload
 
-## 2. Setup & Install node
+## Setup & Install node
 
-System updates, installation of required environments:
+1. System updates, installation of required environments:
 
 ```markup
 sudo apt update
