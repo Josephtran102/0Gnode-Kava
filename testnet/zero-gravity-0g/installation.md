@@ -256,7 +256,7 @@ _\*Important: write your mnemonic phrase in a safe place_
   --min-self-delegation="1" \
   --from="wallet_name" \
   --gas=auto \
-  --gas-adjustment=1.4
+  --gas-adjustment=1.4 \
 <strong>  --gas-prices 0.00252ua0gi \
 </strong>  -y
 </code></pre>
