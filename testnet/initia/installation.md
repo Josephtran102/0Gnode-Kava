@@ -1,3 +1,22 @@
+---
+cover: ../../.gitbook/assets/Initia_banner.png
+coverY: 0
+layout:
+  cover:
+    visible: true
+    size: hero
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+---
+
 # Installation
 
 
@@ -143,8 +162,8 @@ _<mark style="color:red;">\*You will have to wait a while until it syncs</mark>_
 initiad status | jq '{ latest_block_height: .sync_info.latest_block_height, catching_up: .sync_info.catching_up }'
 ```
 
-{% hint style="info" %}
-_You can see your node's latsest\_block\_height like below (Or you can check `catching_up` is `false`) If the block height is set, you can create validator._
+{% hint style="warning" %}
+_<mark style="color:red;">You can see your node's latsest\_block\_height like below (Or you can check</mark> <mark style="color:red;"></mark><mark style="color:red;">`catching_up`</mark> <mark style="color:red;"></mark><mark style="color:red;">is</mark> <mark style="color:red;"></mark><mark style="color:red;">`false`</mark><mark style="color:red;">) If the block height is set, you can create validator.</mark>_
 {% endhint %}
 
 ## 9. Create Validator:
@@ -168,4 +187,112 @@ initiad tx mstaking create-validator \
 -y
 ```
 
-##
+## 9. Oracle Setup:
+
+> _First, let's create a s on the same server._
+
+```
+tmux new -s oracle
+```
+
+> _This section is only valid for the active set, but you can install it now._
+
+### Install Oracle:
+
+```
+# Clone repository
+cd $HOME
+rm -rf slinky
+git clone https://github.com/skip-mev/slinky.git
+cd slinky
+git checkout v0.4.3
+
+# Build binaries
+make build
+
+# Move binary to local bin
+mv build/slinky /usr/local/bin/
+rm -rf build
+```
+
+### Run Oracle:
+
+#### Create service:
+
+```
+sudo tee /etc/systemd/system/slinky.service > /dev/null <<EOF
+[Unit]
+Description=Initia Slinky Oracle
+After=network-online.target
+
+[Service]
+User=$USER
+ExecStart=$(which slinky) --oracle-config-path $HOME/slinky/config/core/oracle.json --market-map-endpoint 0.0.0.0:17990
+Restart=on-failure
+RestartSec=30
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target
+EOF
+```
+
+#### Enable and Start service:
+
+```
+sudo systemctl daemon-reload
+sudo systemctl enable slinky.service
+sudo systemctl start slinky.service
+```
+
+#### Validating Prices:
+
+> _When you run the command below, you should see the prices. However, if you are not in the active set, you will not see the price here. You can stop and continue with CTRL C._
+
+```
+make run-oracle-client
+```
+
+#### Enable Oracle Vote Extension:
+
+```
+###############################################################################
+###                                  Oracle                                 ###
+###############################################################################
+[oracle]
+# Enabled indicates whether the oracle is enabled.
+enabled = "true"
+
+# Oracle Address is the URL of the out of process oracle sidecar. This is used to
+# connect to the oracle sidecar when the application boots up. Note that the address
+# can be modified at any point, but will only take effect after the application is
+# restarted. This can be the address of an oracle container running on the same
+# machine or a remote machine.
+oracle_address = "127.0.0.1:8080"
+
+# Client Timeout is the time that the client is willing to wait for responses from 
+# the oracle before timing out.
+client_timeout = "500ms"
+
+# MetricsEnabled determines whether oracle metrics are enabled. Specifically
+# this enables instrumentation of the oracle client and the interaction between
+# the oracle and the app.
+metrics_enabled = "false"
+```
+
+#### Check logs:
+
+```
+journalctl -fu slinky --no-hostname
+```
+
+* Successfull Log examples:
+
+```
+14T19:07:08.296Z","num_prices":65}
+May 14 19:07:08 slinky[877177]: {"level":"info","ts":"2024-05-14T19:07:08.547Z","caller":"oracle/oracle.go:163","msg":"oracle updated prices","pid":877177,"process":"oracle","last_sync":"2024-05-14T19:07:08.547Z","num_prices":65}
+May 14 19:07:08 slinky[877177]: {"level":"info","ts":"2024-05-14T19:07:08.796Z","caller":"oracle/oracle.go:163","msg":"oracle updated prices","pid":877177,"process":"oracle","last_sync":"2024-05-14T19:07:08.796Z","num_prices":65}
+May 14 19:07:09 slinky[877177]: {"level":"info","ts":"2024-05-14T19:07:09.045Z","caller":"oracle/oracle.go:163","msg":"oracle updated prices","pid":877177,"process":"oracle","last_sync":"2024-05-14T19:07:09.045Z","num_prices":65}
+May 14 19:07:09 slinky[877177]: {"level":"info","ts":"2024-05-14T19:07:09.296Z","caller":"oracle/oracle.go:163","msg":"oracle updated prices","pid":877177,"process":"oracle","last_sync":"2024-05-14T19:07:09.296Z","num_prices":65}
+May 14 19:07:09 slinky[877177]: {"level":"info","ts":"2024-05-14T19:07:09.544Z","caller":"marketmap/fetcher.go:116","msg":"successfully fetched market map data from modu
+```
