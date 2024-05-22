@@ -7,3 +7,4 @@
   * [Commands](testnet/zero-gravity-0g/commands.md)
 * [Initia](testnet/initia/README.md)
   * [Installation](testnet/initia/installation.md)
+  * [Commands](testnet/initia/commands.md)
