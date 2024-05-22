@@ -10,3 +10,5 @@
   * [Commands](testnet/initia/commands.md)
 * [Airchains](testnet/airchains/README.md)
   * [Installation](testnet/airchains/installation.md)
+* [Aligned Layer](testnet/aligned-layer/README.md)
+  * [Installation](testnet/aligned-layer/installation.md)
