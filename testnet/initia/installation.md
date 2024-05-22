@@ -288,6 +288,7 @@ journalctl -fu slinky --no-hostname
 
 * Successfull Log examples:
 
+{% hint style="info" %}
 ```
 14T19:07:08.296Z","num_prices":65}
 May 14 19:07:08 slinky[877177]: {"level":"info","ts":"2024-05-14T19:07:08.547Z","caller":"oracle/oracle.go:163","msg":"oracle updated prices","pid":877177,"process":"oracle","last_sync":"2024-05-14T19:07:08.547Z","num_prices":65}
@@ -296,3 +297,5 @@ May 14 19:07:09 slinky[877177]: {"level":"info","ts":"2024-05-14T19:07:09.045Z",
 May 14 19:07:09 slinky[877177]: {"level":"info","ts":"2024-05-14T19:07:09.296Z","caller":"oracle/oracle.go:163","msg":"oracle updated prices","pid":877177,"process":"oracle","last_sync":"2024-05-14T19:07:09.296Z","num_prices":65}
 May 14 19:07:09 slinky[877177]: {"level":"info","ts":"2024-05-14T19:07:09.544Z","caller":"marketmap/fetcher.go:116","msg":"successfully fetched market map data from modu
 ```
+{% endhint %}
+
