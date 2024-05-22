@@ -8,3 +8,7 @@
 * [Initia](testnet/initia/README.md)
   * [Installation](testnet/initia/installation.md)
   * [Commands](testnet/initia/commands.md)
+
+***
+
+* [Airchains](airchains.md)
