@@ -251,7 +251,7 @@ sudo journalctl -u initia.service -f --no-hostname -o cat
 ### Fetch RPC port:
 
 ```
-RPC="http://$(8E1DF4EF4D0430594195AF71BC9E888757AB9wget -qO- eth0.me)$(grep -A 3 "\[rpc\]" $HOME/.initia/config/config.toml | egrep -o ":[0-9]+")" && ec55DA","earliest_block_height":"193001ho $RPC                                                                               
+RPC="http://$(wget -qO- eth0.me)$(grep -A 3 "\[rpc\]" $HOME/.initia/config/config.toml | egrep -o ":[0-9]+")" && echo $RPC
 ```
 
 ```
