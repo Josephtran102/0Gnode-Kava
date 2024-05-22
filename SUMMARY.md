@@ -12,3 +12,4 @@
 ***
 
 * [Airchains](airchains.md)
+* [Installation](installation.md)
