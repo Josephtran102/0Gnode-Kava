@@ -101,6 +101,7 @@ echo "0x$(0gchaind debug addr $(0gchaind keys show "wallet" -a) | grep hex | awk
 --identity "YOUR_KEYBASE_ID" \
 --details "YOUR_DETAILS" \
 --website "YOUR_WEBSITE_URL" \
+--security-contact "YOUR_CONTACT"
 --chain-id zgtendermint_16600-1 \
 --commission-rate 0.05 \
 --from wallet \
