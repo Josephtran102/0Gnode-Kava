@@ -12,3 +12,7 @@
   * [Installation](testnet/airchains/installation.md)
 * [Aligned Layer](testnet/aligned-layer/README.md)
   * [Installation](testnet/aligned-layer/installation.md)
+
+***
+
+* [Introduction](introduction.md)
