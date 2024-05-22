@@ -1,5 +1,5 @@
 ---
-cover: .gitbook/assets/Airchains_banner.png
+cover: ../.gitbook/assets/Airchains_banner.png
 coverY: -89.63809523809525
 layout:
   cover:

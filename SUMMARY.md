@@ -11,5 +11,5 @@
 
 ***
 
-* [Airchains](airchains.md)
-* [Installation](installation.md)
+* [Airchains](airchains/README.md)
+  * [Installation](airchains/installation.md)
