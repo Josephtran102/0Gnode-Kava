@@ -248,3 +248,13 @@ sudo systemctl restart 0gchain
 ```
 sudo journalctl -u 0gchain -f --no-hostname -o cat
 ```
+
+### Fetch RPC port:
+
+```
+RPC="http://$(wget -qO- eth0.me)$(grep -A 3 "\[rpc\]" $HOME/.0gchain/config/config.toml | egrep -o ":[0-9]+")" && echo $RPC
+```
+
+```
+curl $RPC/status
+```
