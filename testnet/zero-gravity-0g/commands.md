@@ -259,3 +259,17 @@ RPC="http://$(wget -qO- eth0.me)$(grep -A 3 "\[rpc\]" $HOME/.0gchain/config/conf
 ```
 curl $RPC/status
 ```
+
+### Retrieving Node ID and Server IP Address Configuration:
+
+#### Your node:
+
+```
+echo $(0gchaind tendermint show-node-id)'@'$(curl -s ipv4.icanhazip.com)':'$(cat $HOME/.0gchain/config/config.toml | sed -n '/Address to listen for incoming connection/{n;p;}' | sed 's/.*://; s/".*//')
+```
+
+#### From RPC other node:
+
+```
+curl -s https://0g-rpc.chainad.org/net_info | jq -r '.result.peers[] | select(.node_info.listen_addr | test("^tcp://0.0.0.0") | not) | "\(.node_info.id)@\(.node_info.listen_addr)"'
+```
