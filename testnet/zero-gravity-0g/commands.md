@@ -197,9 +197,9 @@ Please, before proceeding with the next step! All chain data will be lost! Make 
 
 ```
 cd $HOME
-sudo systemctl stop 0gchain
-sudo systemctl disable 0gchain
-sudo rm /etc/systemd/system/0gchain
+sudo systemctl stop ogchain
+sudo systemctl disable ogchain
+sudo rm /etc/systemd/system/ogchain
 sudo systemctl daemon-reload
 rm -f $(which 0gchaind)
 rm -rf $HOME/.0gchaind
@@ -217,37 +217,37 @@ sudo systemctl daemon-reload
 ### Enable service:
 
 ```
-sudo systemctl enable 0gchain
+sudo systemctl enable ogchain
 ```
 
 ### Disable service:
 
 ```
-sudo systemctl disable 0gchain
+sudo systemctl disable ogchain
 ```
 
 ### Start service:
 
 ```
-sudo systemctl start 0gchain
+sudo systemctl start ogchain
 ```
 
 ### Stop service:
 
 ```
-sudo systemctl stop 0gchain
+sudo systemctl stop ogchain
 ```
 
 ### Restart service:
 
 ```
-sudo systemctl restart 0gchain
+sudo systemctl restart ogchain
 ```
 
 ### Check service logs:
 
 ```
-sudo journalctl -u 0gchain -f --no-hostname -o cat
+sudo journalctl -u ogchain -f --no-hostname -o cat
 ```
 
 ### Fetch RPC port:
