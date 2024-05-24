@@ -14,9 +14,11 @@ By following our guides, you will learn how to:
 
 Our mission is to empower you with the knowledge and skills to effectively run blockchain nodes, contributing to the robustness and resilience of decentralized networks. Explore our detailed guides and start your journey towards becoming a proficient node operator today.
 
+***
 
----------------------------------------------------------------------
-Aligned Layer: alignedvaloper1qklx8yry7pfa9agefwx56rradq7xcnty4e6y8h
-Mantra: mantravaloper1w8m3pj60fy4nnrnyc8c2s6vx2ntw0lkwz08ugd
-Airchain: airvaloper1rr2zsalccnqa86ndvc0l90kdwhxw9hxg8jjejc
-Initia: initvaloper1lwf56jz3nr8njw58j2gdcmzvv6kqnc50mq4pss
+* 0gchain: 0gvaloper1arf2rfrsx4pu9kpzxj06ydces6ptn8jwvth73n
+* Aligned Layer: alignedvaloper1qklx8yry7pfa9agefwx56rradq7xcnty4e6y8h
+* Mantra: mantravaloper1w8m3pj60fy4nnrnyc8c2s6vx2ntw0lkwz08ugd&#x20;
+* Airchain: airvaloper1rr2zsalccnqa86ndvc0l90kdwhxw9hxg8jjejc
+* Initia: initvaloper1lwf56jz3nr8njw58j2gdcmzvv6kqnc50mq4pss
+
