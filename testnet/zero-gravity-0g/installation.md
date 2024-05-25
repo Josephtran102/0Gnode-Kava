@@ -276,6 +276,7 @@ _\*Important: write your mnemonic phrase in a safe place_
 --identity "" \
 --website "" \
 --details "I love blockchain ❤️" \
+--security-contact "" \
 --from="wallet_name" \
 --gas=auto \
 --gas-adjustment=1.4
