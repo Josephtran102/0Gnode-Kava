@@ -5,6 +5,7 @@
 ## Testnet
 
 * [Zero Gravity (0G)](<README (1).md>)
+  * [Services](testnet/readme-1/services.md)
   * [Installation](testnet/zero-gravity-0g/installation.md)
   * [Commands](testnet/zero-gravity-0g/commands.md)
 * [Initia](testnet/initia/README.md)
