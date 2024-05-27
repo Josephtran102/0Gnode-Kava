@@ -181,6 +181,12 @@ initiad tx gov vote 1 yes/no --from wallet --chain-id initiation-1 --gas-adjustm
 initiad status 2>&1 | jq
 ```
 
+### Check sync status:
+
+```
+local_height=$(initiad status | jq -r .sync_info.latest_block_height); network_height=$(curl -s https://rpc-initia-testnet.trusted-point.com/status | jq -r .result.sync_info.latest_block_height); blocks_left=$((network_height - local_height)); echo "Your node height: $local_height"; echo "Network height: $network_height"; echo "Blocks left: $blocks_left"
+```
+
 ### Get node peers:
 
 ```
@@ -215,37 +221,37 @@ sudo systemctl daemon-reload
 ### Enable service:
 
 ```
-sudo systemctl enable initia.service
+sudo systemctl enable initiad
 ```
 
 ### Disable service:
 
 ```
-sudo systemctl disable initia.service
+sudo systemctl disable initiad
 ```
 
 ### Start service:
 
 ```
-sudo systemctl start initia.service
+sudo systemctl start initiad
 ```
 
 ### Stop service:
 
 ```
-sudo systemctl stop initia.service
+sudo systemctl stop initiad
 ```
 
 ### Restart service:
 
 ```
-sudo systemctl restart initia.service
+sudo systemctl restart initiad
 ```
 
 ### Check service logs:
 
 ```
-sudo journalctl -u initia.service -f --no-hostname -o cat
+sudo journalctl -u initiad -f --no-hostname -o cat
 ```
 
 ### Fetch RPC port:
