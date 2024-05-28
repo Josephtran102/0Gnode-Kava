@@ -196,8 +196,14 @@ echo $(initiad tendermint show-node-id)'@'$(curl -s ifconfig.me)':'$(cat $HOME/.
 ### Set peers:
 
 ```
-PEERS="aee7083ab11910ba3f1b8126d1b3728f13f54943@initia-testnet-peer.itrocket.net:11656,c13024698c6ea43c0a67d1dd04d1c85c383e60bc@144.76.43.59:50156,236935926b4e1f7007b61a151d4bd19e6b8ef342@31.220.92.49:26656,a66a537dd19c0a002a30b0915faddd433b5df937@164.68.105.29:14656,b4dce0031f59975f47d144be7fdd6aa46a238096@173.249.33.95:26656,6404cbd22f6edaa6b7c97c9dc44dd5df842d2b1e@84.247.161.48:26656,722648d772f106ca0be480fbc38168a3c5b190d2@84.247.174.83:14656,c858c713e80ceee3a5f0fb43198b00a478e383f5@136.243.147.3:26656,322c4f2fcfc6a367f2b072b2d0e56f514b7acc2c@95.216.112.231:26656,4c75fb452922df0c579e3d6eb965e71b51a409fb@88.99.63.84:26656,c949d1ff552e08f3ed9a8d84fca9b80fa9fcbf77@138.201.20.145:26656"
-sed -i 's|^persistent_peers *=.*|persistent_peers = "'$PEERS'"|' $HOME/.initia/config/config.toml
+PEERS=$(curl -s --max-time 3 --retry 2 --retry-connrefused "https://services.blacknodes.net/Initia-Testnet/data/peers.txt")
+if [ -z "$PEERS" ]; then
+  echo "No Peers Were Retrieved From URL"
+else
+  echo -e "PEERS: $PEERS"
+  sed -i "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" "$HOME/.initia/config/config.toml"
+  echo -e "Configuration File Updated Successfully"
+fi
 sudo systemctl restart initiad && sudo journalctl -u initiad -f
 ```
 
@@ -270,4 +276,24 @@ RPC="http://$(wget -qO- eth0.me)$(grep -A 3 "\[rpc\]" $HOME/.initia/config/confi
 
 ```
 curl $RPC/status
+```
+
+### Retrieving Node ID and Server IP Address Configuration:
+
+#### From yourself:
+
+```
+echo $(initiad tendermint show-node-id)'@'$(curl -s ipv4.icanhazip.com)':'$(cat $HOME/.initia/config/config.toml | sed -n '/Address to listen for incoming connection/{n;p;}' | sed 's/.://; s/".//')
+```
+
+#### From RPC public:
+
+```
+curl https://initia-rpc.coinhunterstr.com/status
+```
+
+#### Node listen info:
+
+```
+curl -s https://initia-rpc.coinhunterstr.com/net_info | jq -r '.result.peers[] | select(.node_info.listen_addr | test("^tcp://0.0.0.0") | not) | "\(.node_info.id)@\(.node_info.listen_addr)"'
 ```
