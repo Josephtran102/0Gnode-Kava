@@ -25,9 +25,7 @@ layout:
 
 ### EVM - RPC
 
-```
-https://evm.rpc.0gchain.josephtran.xyz/
-```
+{% embed url="https://evm.rpc.0gchain.josephtran.xyz/" %}
 
 ## Explorer:
 
