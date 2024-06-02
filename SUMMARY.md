@@ -9,6 +9,7 @@
   * [Installation](testnet/zero-gravity-0g/installation.md)
   * [Commands](testnet/zero-gravity-0g/commands.md)
 * [Initia](testnet/initia/README.md)
+  * [Services](testnet/initia/services.md)
   * [Installation](testnet/initia/installation.md)
   * [Commands](testnet/initia/commands.md)
 * [Airchains](testnet/airchains/README.md)
