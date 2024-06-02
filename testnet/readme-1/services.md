@@ -23,6 +23,12 @@ layout:
 
 {% embed url="https://rpc.0gchain.josephtran.xyz:8443/" %}
 
+### EVM - RPC
+
+```
+https://evm.rpc.0gchain.josephtran.xyz/
+```
+
 ## Explorer:
 
 {% embed url="https://www.explorer.josephtran.xyz/" %}
