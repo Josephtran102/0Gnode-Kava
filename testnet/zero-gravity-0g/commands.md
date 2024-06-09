@@ -223,37 +223,37 @@ sudo systemctl daemon-reload
 ### Enable service:
 
 ```
-sudo systemctl enable ogchain
+sudo systemctl enable ogd
 ```
 
 ### Disable service:
 
 ```
-sudo systemctl disable ogchain
+sudo systemctl disable ogd
 ```
 
 ### Start service:
 
 ```
-sudo systemctl start ogchain
+sudo systemctl start ogd
 ```
 
 ### Stop service:
 
 ```
-sudo systemctl stop ogchain
+sudo systemctl stop ogd
 ```
 
 ### Restart service:
 
 ```
-sudo systemctl restart ogchain
+sudo systemctl restart ogd
 ```
 
 ### Check service logs:
 
 ```
-sudo journalctl -u ogchain -f --no-hostname -o cat
+sudo journalctl -u ogd -f --no-hostname -o cat
 ```
 
 ### Fetch RPC port:
