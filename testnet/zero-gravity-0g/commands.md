@@ -203,9 +203,9 @@ Please, before proceeding with the next step! All chain data will be lost! Make 
 
 ```
 cd $HOME
-sudo systemctl stop ogchain
-sudo systemctl disable ogchain
-sudo rm /etc/systemd/system/ogchain
+sudo systemctl stop ogd
+sudo systemctl disable ogd
+sudo rm /etc/systemd/system/ogd
 sudo systemctl daemon-reload
 rm -f $(which 0gchaind)
 rm -rf $HOME/.0gchaind
