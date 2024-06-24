@@ -172,8 +172,9 @@ EOF
 
 ```markup
 sudo systemctl daemon-reload && \
-sudo systemctl enable ogd && \
-sudo systemctl restart ogd
+sudo systemctl enable 0gd && \
+sudo systemctl restart 0gd && \
+sudo journalctl -u 0gd -f -o cat
 ```
 
 ## 12. Update Addrbook, Update Peers:
