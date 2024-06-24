@@ -37,22 +37,23 @@ sudo apt install curl git jq build-essential gcc unzip wget lz4 -y
 
 ```markup
 cd $HOME && \
-ver="1.21.3" && \
+ver="1.22.0" && \
 wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz" && \
 sudo rm -rf /usr/local/go && \
 sudo tar -C /usr/local -xzf "go$ver.linux-amd64.tar.gz" && \
 rm "go$ver.linux-amd64.tar.gz" && \
-echo "export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin" >> $HOME/.bash_profile && \
-source $HOME/.bash_profile && \
+echo "export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin" >> ~/.bash_profile && \
+source ~/.bash_profile && \
 go version
 ```
 
 ## 3. Git clone:
 
 ```markup
-git clone -b v0.1.0 https://github.com/0glabs/0g-chain.git
-./0g-chain/networks/testnet/install.sh
-source .profile
+git clone -b v0.2.3 https://github.com/0glabs/0g-chain.git
+cd 0g-chain
+make install
+0gchaind version
 ```
 
 ## 4. Variable settings:
@@ -63,7 +64,7 @@ Replace "_<mark style="color:purple;">your\_node\_name</mark>_", "_<mark style="
 
 ```markup
 echo 'export MONIKER="your_node_name"' >> ~/.bash_profile
-echo 'export CHAIN_ID="zgtendermint_16600-1"' >> ~/.bash_profile
+echo 'export CHAIN_ID="zgtendermint_16600-2"' >> ~/.bash_profile
 echo 'export WALLET_NAME="wallet_name"' >> ~/.bash_profile
 echo 'export RPC_PORT="26657"' >> ~/.bash_profile
 source $HOME/.bash_profile
@@ -82,14 +83,23 @@ cd $HOME
 ## 6. Download genesis.json file:
 
 ```
-wget -P ~/.0gchain/config https://github.com/0glabs/0g-chain/releases/download/v0.1.0/genesis.json
+rm ~/.0gchain/config/genesis.json
+wget -P ~/.0gchain/config https://github.com/0glabs/0g-chain/releases/download/v0.2.3/genesis.json
 ```
+
+```
+0gchaind validate-genesis
+```
+
+Then verify the correctness of the genesis configuration file:
+
+
 
 ## 7. PEERS, SEED setting:
 
 ```
 PEERS="c4d619f6088cb0b24b4ab43a0510bf9251ab5d7f@54.241.167.190:26656,44d11d4ba92a01b520923f51632d2450984d5886@54.176.175.48:26656,f2693dd86766b5bf8fd6ab87e2e970d564d20aff@54.193.250.204:26656,f878d40c538c8c23653a5b70f615f8dccec6fb9f@54.215.187.94:26656, 41143f378016a05e1fa4fa8aa028035a82761b48@154.12.235.67:46656" && \
-SEEDS="c4d619f6088cb0b24b4ab43a0510bf9251ab5d7f@54.241.167.190:26656,44d11d4ba92a01b520923f51632d2450984d5886@54.176.175.48:26656,f2693dd86766b5bf8fd6ab87e2e970d564d20aff@54.193.250.204:26656,f878d40c538c8c23653a5b70f615f8dccec6fb9f@54.215.187.94:26656, 41143f378016a05e1fa4fa8aa028035a82761b48@154.12.235.67:46656" && \
+SEEDS="81987895a11f6689ada254c6b57932ab7ed909b6@54.241.167.190:26656,010fb4de28667725a4fef26cdc7f9452cc34b16d@54.176.175.48:26656,e9b4bc203197b62cc7e6a80a64742e752f4210d5@54.193.250.204:26656,68b9145889e7576b652ca68d985826abd46ad660@18.166.164.232:26656" && \
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.0gchain/config/config.toml
 ```
 
@@ -135,22 +145,22 @@ sed -i "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0ua0gi\"/" $HOME/.0gch
 ```
 
 ```
-sed -i "s/^indexer *=.*/indexer = \"kv\"/" $HOME/.0gchain/config/config.toml
+sed -i "s/^indexer *=.*/indexer = \"null\"/" $HOME/.0gchain/config/config.toml
 ```
 
 ## 10. Create service file (at once):// Some code
 
 ```
-sudo tee /etc/systemd/system/ogd.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/0gd.service > /dev/null <<EOF
 [Unit]
-Description=OG Node
+Description=0G Node
 After=network.target
 
 [Service]
 User=$USER
 Type=simple
 ExecStart=$(which 0gchaind) start --home $HOME/.0gchain
-Restart=10
+Restart=on-failure
 LimitNOFILE=65535
 
 [Install]
