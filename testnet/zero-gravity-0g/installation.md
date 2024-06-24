@@ -259,7 +259,7 @@ _\*Important: write your mnemonic phrase in a safe place_
   --amount=1000000ua0gi \
   --pubkey=$(0gchaind tendermint show-validator) \
   --moniker="Your_node_name" \
-  --chain-id=zgtendermint_16600-1 \
+  --chain-id=zgtendermint_16600-2 \
   --commission-rate="0.10" \
   --commission-max-rate="0.20" \
   --commission-max-change-rate="0.01" \
@@ -282,17 +282,17 @@ _\*Important: write your mnemonic phrase in a safe place_
 
 ```
 0gchaind tx staking edit-validator \
---moniker "$MONIKER" \
---chain-id=zgtendermint_16600-1 \
---identity "" \
---website "" \
---details "I love blockchain ❤️" \
---security-contact "" \
---from="wallet_name" \
---gas=auto \
---gas-adjustment=1.4
---gas-prices 0.00252ua0gi \
--y
+  --new-moniker "JosephTran" \
+  --identity "891BC6B7C0D28458" \
+  --details "Joseph Tran Validator" \
+  --website "www.josephtran.xyz" \
+  --security-contact "@josephtran102" \
+  --chain-id "zgtendermint_16600-2" \
+  --from josephtran \
+  --gas-adjustment 1.5 \
+  --gas auto \
+  --gas-prices 0.00252ua0gi \
+  -y
 ```
 
 ### Delegate:
