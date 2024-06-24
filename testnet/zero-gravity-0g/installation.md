@@ -177,43 +177,11 @@ sudo systemctl restart 0gd && \
 sudo journalctl -u 0gd -f -o cat
 ```
 
-## 12. Update Addrbook, Update Peers:
-
-#### _**\*Update addrbook**_**:**
-
-```
-curl -Ls https://snapshots.liveraven.net/snapshots/testnet/zero-gravity/addrbook.json > $HOME/.0gchain/config/addrbook.json
-```
-
-#### _**\*Update Peers:**_
-
-```
-PEERS=$(curl -s --max-time 3 --retry 2 --retry-connrefused "https://snapshots.liveraven.net/snapshots/testnet/zero-gravity/peers.txt")
-if [ -z "$PEERS" ]; then
-    echo "No peers were retrieved from the URL."
-else
-    echo -e "\nPEERS: "$PEERS""
-    sed -i "s/^persistent_peers *=.*/persistent_peers = "$PEERS"/" "$HOME/.0gchain/config/config.toml"
-    echo -e "\nConfiguration file updated successfully.\n"
-fi
-```
-
-## 13. Download snapshot:
-
-```
-sudo systemctl stop ogd
-cp $HOME/.0gchain/data/priv_validator_state.json $HOME/.0gchain/priv_validator_state.json.backup
-rm -rf $HOME/.0gchain/data
-curl -L http://snapshots.liveraven.net/snapshots/testnet/zero-gravity/zgtendermint_16600-1_latest.tar.lz4 | tar -Ilz4 -xf - -C $HOME/.0gchain
-mv $HOME/.0gchain/priv_validator_state.json.backup $HOME/.0gchain/data/priv_validator_state.json
-sudo systemctl restart ogd && sudo journalctl -u ogd -f -o cat
-```
-
 {% hint style="warning" %}
 _<mark style="color:red;">\*You will have to wait a while until it syncs</mark>_
 {% endhint %}
 
-## 14. Check Latest Block Height:
+## 13. Check Latest Block Height:
 
 ```
 0gchaind status | jq '{ latest_block_height: .sync_info.latest_block_height, catching_up: .sync_info.catching_up }'
@@ -221,7 +189,7 @@ _<mark style="color:red;">\*You will have to wait a while until it syncs</mark>_
 
 > _You can see your node's latsest\_block\_height like below (Or you can check `catching_up` is `false`) If the block height is set, you can create validator._
 
-## 15. Wallet config, check EVM address:
+## 14. Wallet config, check EVM address:
 
 ### Add wallet:
 
@@ -241,11 +209,11 @@ _\*Important: write your mnemonic phrase in a safe place_
 0gchaind keys unsafe-export-eth-key "wallet_name"
 ```
 
-## 16.  **Faucet token:**
+## 15.  **Faucet token:**
 
 * Faucet link: [https://faucet.0g.ai/](https://faucet.0g.ai/)
 
-## 17. Check Balance & Create Validator & Check Validator:
+## 16. Check Balance & Create Validator & Check Validator:
 
 ### Check balance:
 
