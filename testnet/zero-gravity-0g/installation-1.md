@@ -61,6 +61,6 @@ mv $HOME/.0gchain/priv_validator_state.json.backup $HOME/.0gchain/data/priv_vali
 Restart node:
 
 ```markup
-sudo systemctl restart 0gd && sudo journalctl -u initiad -f -o cat
+sudo systemctl restart 0gd && sudo journalctl -u 0gd -f -o cat
 ```
 
