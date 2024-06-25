@@ -120,7 +120,7 @@ echo "0x$(0gchaind debug addr $(0gchaind keys show "wallet" -a) | grep hex | awk
 ### Unjail:
 
 ```
-0gchaind tx slashing unjail --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.00252ua0gi -y
+0gchaind tx slashing unjail --from wallet --chain-id zgtendermint_16600-2 --gas-adjustment 1.5 --gas auto --gas-prices 0.00252ua0gi -y
 ```
 
 ## 💰 Token management:
@@ -128,37 +128,37 @@ echo "0x$(0gchaind debug addr $(0gchaind keys show "wallet" -a) | grep hex | awk
 ### Send token to another wallet:
 
 ```
-0gchaind tx bank send "wallet" <TO_WALLET_ADDRESS> 100000ua0gi --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.00252ua0gi -y
+0gchaind tx bank send "wallet" <TO_WALLET_ADDRESS> 100000ua0gi --from wallet --chain-id zgtendermint_16600-2 --gas-adjustment 1.5 --gas auto --gas-prices 0.00252ua0gi -y
 ```
 
 ### Delegate tokens to yourself:
 
 ```
-0gchaind tx staking delegate $(0gchaind keys show wallet --bech val -a) 100000ua0gi --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.00252ua0gi -y
+0gchaind tx staking delegate $(0gchaind keys show wallet --bech val -a) 100000ua0gi --from wallet --chain-id zgtendermint_16600-2 --gas-adjustment 1.5 --gas auto --gas-prices 0.00252ua0gi -y
 ```
 
 ### Redelegate tokens to another Validator:
 
 ```
-0gchaind tx staking redelegate $(0gchaind keys show wallet --bech val -a) <TO_VALOPER_ADDRESS> 100000ua0gi --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.00252ua0gi -y
+0gchaind tx staking redelegate $(0gchaind keys show wallet --bech val -a) <TO_VALOPER_ADDRESS> 100000ua0gi --from wallet --chain-id zgtendermint_16600-2 --gas-adjustment 1.5 --gas auto --gas-prices 0.00252ua0gi -y
 ```
 
 ### Withdraw rewards from all Validators:
 
 ```
-0gchaind tx distribution withdraw-all-rewards --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.00252ua0gi -y
+0gchaind tx distribution withdraw-all-rewards --from wallet --chain-id zgtendermint_16600-2 --gas-adjustment 1.5 --gas auto --gas-prices 0.00252ua0gi -y
 ```
 
 ### Withdraw commission & rewards from your validator:
 
 ```
-0gchaind tx distribution withdraw-rewards $(0gchaind keys show wallet --bech val -a) --commission --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.00252ua0gi -y
+0gchaind tx distribution withdraw-rewards $(0gchaind keys show wallet --bech val -a) --commission --from wallet --chain-id zgtendermint_16600-2 --gas-adjustment 1.5 --gas auto --gas-prices 0.00252ua0gi -y
 ```
 
 ### Unbond tokens from your validator:
 
 ```
-0gchaind tx staking unbond $(0gchaind keys show wallet --bech val -a) 100000ua0gi --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.00252ua0gi -y
+0gchaind tx staking unbond $(0gchaind keys show wallet --bech val -a) 100000ua0gi --from wallet --chain-id zgtendermint_16600-2 --gas-adjustment 1.5 --gas auto --gas-prices 0.00252ua0gi -y
 ```
 
 ## 🗳 Governance:
@@ -172,7 +172,7 @@ echo "0x$(0gchaind debug addr $(0gchaind keys show "wallet" -a) | grep hex | awk
 ### Vote Yes/No:
 
 ```
-0gchaind tx gov vote 1 yes/no --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.00252ua0gi -y
+0gchaind tx gov vote 1 yes/no --from wallet --chain-id zgtendermint_16600-2 --gas-adjustment 1.5 --gas auto --gas-prices 0.00252ua0gi -y
 ```
 
 ## 🚨 Maintenance
