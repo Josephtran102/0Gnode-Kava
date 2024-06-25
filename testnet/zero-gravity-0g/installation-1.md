@@ -29,6 +29,7 @@ sudo systemctl stop 0gd
 Backup `priv_validator_state.json` & reset data:
 
 ```markup
+cp $HOME/.0gchain/data/priv_validator_state.json $HOME/.0gchain/priv_validator_state.json.backup
 rm -rf $HOME/.0gchain/data
 0gchaind tendermint unsafe-reset-all --home $HOME/.0gchain --keep-addr-book
 ```
@@ -49,6 +50,12 @@ Extract snapshot:
 
 ```markup
 lz4 -c -d 0gchain_25-06-2024-14-32.lz4  | tar -x -C $HOME/.0gchain
+```
+
+Move `priv_validator_state.json back:`
+
+```markup
+mv $HOME/.0gchain/priv_validator_state.json.backup $HOME/.0gchain/data/priv_validator_state.json
 ```
 
 Restart node:
