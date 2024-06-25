@@ -29,7 +29,7 @@ sudo systemctl stop 0gd
 Backup `priv_validator_state.json` & reset data:
 
 ```markup
-crm -rf $HOME/.0gchain/data
+rm -rf $HOME/.0gchain/data
 0gchaind tendermint unsafe-reset-all --home $HOME/.0gchain --keep-addr-book
 ```
 
