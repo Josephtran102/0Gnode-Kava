@@ -223,37 +223,37 @@ sudo systemctl daemon-reload
 ### Enable service:
 
 ```
-sudo systemctl enable ogd
+sudo systemctl enable 0gd
 ```
 
 ### Disable service:
 
 ```
-sudo systemctl disable ogd
+sudo systemctl disable 0gd
 ```
 
 ### Start service:
 
 ```
-sudo systemctl start ogd
+sudo systemctl start 0gd
 ```
 
 ### Stop service:
 
 ```
-sudo systemctl stop ogd
+sudo systemctl stop 0gd
 ```
 
 ### Restart service:
 
 ```
-sudo systemctl restart ogd
+sudo systemctl restart 0gd
 ```
 
 ### Check service logs:
 
 ```
-sudo journalctl -u ogd -f --no-hostname -o cat
+sudo journalctl -u 0gd -f --no-hostname -o cat
 ```
 
 ### Fetch RPC port:
@@ -277,5 +277,5 @@ echo $(0gchaind tendermint show-node-id)'@'$(curl -s ipv4.icanhazip.com)':'$(cat
 #### From RPC other node:
 
 ```
-curl -s https://0g-rpc.chainad.org/net_info | jq -r '.result.peers[] | select(.node_info.listen_addr | test("^tcp://0.0.0.0") | not) | "\(.node_info.id)@\(.node_info.listen_addr)"'
+curl -s https://rpc.0gchain.josephtran.xyz/net_info | jq -r '.result.peers[] | select(.node_info.listen_addr | test("^tcp://0.0.0.0") | not) | "\(.node_info.id)@\(.node_info.listen_addr)"'
 ```
