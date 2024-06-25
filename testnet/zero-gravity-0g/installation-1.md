@@ -21,6 +21,10 @@ layout:
 
 Download snapshot:
 
+Snapshot is updated every 6hours.
+
+Latest Snapshot available is at height:
+
 ```
 sudo systemctl stop 0gd
 cp $HOME/.0gchain/data/priv_validator_state.json $HOME/.0gchain/priv_validator_state.json.backup
