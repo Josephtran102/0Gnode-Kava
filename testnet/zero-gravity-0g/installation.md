@@ -181,7 +181,7 @@ sudo journalctl -u 0gd -f -o cat
 _<mark style="color:red;">\*You will have to wait a while until it syncs</mark>_
 {% endhint %}
 
-## 13. Check Latest Block Height:
+## 12. Check Latest Block Height:
 
 ```
 0gchaind status | jq '{ latest_block_height: .sync_info.latest_block_height, catching_up: .sync_info.catching_up }'
@@ -189,7 +189,7 @@ _<mark style="color:red;">\*You will have to wait a while until it syncs</mark>_
 
 > _You can see your node's latsest\_block\_height like below (Or you can check `catching_up` is `false`) If the block height is set, you can create validator._
 
-## 14. Wallet config, check EVM address:
+## 13. Wallet config, check EVM address:
 
 ### Add wallet:
 
@@ -209,11 +209,11 @@ _\*Important: write your mnemonic phrase in a safe place_
 0gchaind keys unsafe-export-eth-key "wallet_name"
 ```
 
-## 15.  **Faucet token:**
+## 14.  **Faucet token:**
 
 * Faucet link: [https://faucet.0g.ai/](https://faucet.0g.ai/)
 
-## 16. Check Balance & Create Validator & Check Validator:
+## 15. Check Balance & Create Validator & Check Validator:
 
 ### Check balance:
 
