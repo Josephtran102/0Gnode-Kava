@@ -48,7 +48,7 @@ aria2c -x5 -s4 http://snapshot.josephtran.xyz/0gchain_25-06-2024-14-32.lz4
 Extract snapshot:
 
 ```markup
-lz4 -c -d 0gchain_25-06-2024-14-32.lz4  | tar -x -C $HOME/.0gchain/
+lz4 -c -d 0gchain_25-06-2024-14-32.lz4  | tar -x -C $HOME/.0gchain
 ```
 
 Restart node:
