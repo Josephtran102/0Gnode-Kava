@@ -208,8 +208,8 @@ sudo systemctl disable 0gd
 sudo rm /etc/systemd/system/0gd
 sudo systemctl daemon-reload
 rm -f $(which 0gchaind)
-rm -rf $HOME/.0gchaind
-rm -rf $HOME/0gchaind
+rm -rf $HOME/.0gchain
+rm -rf $HOME/0g-chain
 ```
 
 ## ⚙️ Service Management:
