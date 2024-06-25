@@ -1,4 +1,5 @@
 ---
+description: Snapshot is updated every 6hours.
 cover: ../../.gitbook/assets/0G-banner.png
 coverY: 0
 layout:
@@ -18,10 +19,6 @@ layout:
 ---
 
 # Snapshot
-
-Download snapshot:
-
-Snapshot is updated every 6hours.
 
 Latest Snapshot available is at height:
 
