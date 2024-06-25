@@ -31,7 +31,7 @@ cp $HOME/.0gchain/data/priv_validator_state.json $HOME/.0gchain/priv_validator_s
 rm -rf $HOME/.0gchain/data
 0gchaind tendermint unsafe-reset-all --home $HOME/.0gchain --keep-addr-book
 sudo apt-get install wget liblz4-tool aria2 -y
-aria2c -x5 -s4 http://snapshot.josephtran.xyz/0gchtain_25-06-2024-09-12.lz4
+aria2c -x5 -s4 http://snapshot.josephtran.xyz/0gchain_25-06-2024-14-32.lz4
 lz4 -c -d 0gchtain_25-06-2024-09-12.lz4  | tar -x -C $HOME/.0gchain/data
 mv $HOME/.0gchain/priv_validator_state.json.backup $HOME/.0gchain/data/priv_validator_state.json
 sudo systemctl restart 0gd && sudo journalctl -u initiad -f -o cat
