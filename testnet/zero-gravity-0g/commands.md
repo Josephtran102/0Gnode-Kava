@@ -81,7 +81,7 @@ echo "0x$(0gchaind debug addr $(0gchaind keys show "wallet" -a) | grep hex | awk
 --identity "YOUR_KEYBASE_ID" \
 --details "YOUR_DETAILS" \
 --website "YOUR_WEBSITE_URL" \
---chain-id zgtendermint_16600-1 \
+--chain-id zgtendermint_16600-2 \
 --commission-rate 0.05 \
 --commission-max-rate 0.20 \
 --commission-max-change-rate 0.05 \
@@ -102,7 +102,7 @@ echo "0x$(0gchaind debug addr $(0gchaind keys show "wallet" -a) | grep hex | awk
 --details "YOUR_DETAILS" \
 --website "YOUR_WEBSITE_URL" \
 --security-contact "YOUR_CONTACT"
---chain-id zgtendermint_16600-1 \
+--chain-id zgtendermint_16600-2 \
 --commission-rate 0.05 \
 --from wallet \
 --gas-adjustment 1.5 \
@@ -192,7 +192,7 @@ local_height=$(0gchaind status | jq -r .sync_info.latest_block_height); network_
 ### Get node peers:
 
 ```
-echo $(0gchaind tendermint show-node-id)'@'$(curl -s ifconfig.me)':'$(cat $HOME/.0gchaind/config/config.toml | sed -n '/Address to listen for incoming connection/{n;p;}' | sed 's/.*://; s/".*//')
+echo $(0gchaind tendermint show-node-id)'@'$(curl -s ifconfig.me)':'$(cat $HOME/.0gchain/config/config.toml | sed -n '/Address to listen for incoming connection/{n;p;}' | sed 's/.*://; s/".*//')
 ```
 
 ### Remove node:
