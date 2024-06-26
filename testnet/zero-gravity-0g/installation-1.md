@@ -1,5 +1,5 @@
 ---
-description: Snapshot is updated every 24 hours.
+description: Snapshot is updated every 6 hours.
 cover: ../../.gitbook/assets/0G-banner.png
 coverY: 0
 layout:
