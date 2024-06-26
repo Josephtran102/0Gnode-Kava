@@ -20,7 +20,7 @@ layout:
 
 # Snapshot
 
-Latest Snapshot available is at height: `21062`
+Latest Snapshot available is at height: `24167`
 
 ```markup
 sudo systemctl stop 0gd
@@ -47,20 +47,20 @@ sudo apt-get install wget liblz4-tool aria2 -y
 Download snapshot:
 
 ```markup
-aria2c -x5 -s4 http://snapshot.josephtran.xyz/0gchain_block_21062_25-06-2024-18-20.lz4
+aria2c -x5 -s4 http://snapshot.josephtran.xyz/0gchain_block_24167_26-06-2024-00-00.lz4
 ```
 
 Extract snapshot:
 
 ```markup
-lz4 -c -d 0gchain_block_21062_25-06-2024-18-20.lz4  | tar -x -C $HOME/.0gchain
+lz4 -c -d 0gchain_block_24167_26-06-2024-00-00.lz4  | tar -x -C $HOME/.0gchain
 ```
 
 Remove snapshot:
 
 ```
 cd $HOME
-rm -rf 0gchain_block_21062_25-06-2024-18-20.lz4
+rm -rf 0gchain_block_24167_26-06-2024-00-00.lz4
 ```
 
 Move `priv_validator_state.json back:`
