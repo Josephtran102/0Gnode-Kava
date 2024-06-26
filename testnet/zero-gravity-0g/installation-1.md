@@ -20,8 +20,6 @@ layout:
 
 # Snapshot
 
-Latest Snapshot available is at height: `29363`
-
 ```markup
 sudo systemctl stop 0gd
 ```
