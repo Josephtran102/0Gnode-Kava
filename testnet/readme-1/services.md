@@ -21,11 +21,17 @@ layout:
 
 ## RPC:
 
-{% embed url="https://rpc.0gchain.josephtran.xyz:8443/" %}
+{% embed url="https://rpc.0gchain.josephtran.xyz/" %}
 
 ### EVM - RPC
 
 {% embed url="https://evm.rpc.0gchain.josephtran.xyz/" %}
+
+## Snapshot:
+
+{% content-ref url="../zero-gravity-0g/installation-1.md" %}
+[installation-1.md](../zero-gravity-0g/installation-1.md)
+{% endcontent-ref %}
 
 ## Explorer:
 
