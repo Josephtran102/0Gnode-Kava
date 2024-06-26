@@ -1,5 +1,5 @@
 ---
-description: Snapshot is updated every 6 hours.
+description: Snapshot is updated every 1 hours.
 cover: ../../.gitbook/assets/0G-banner.png
 coverY: 0
 layout:
@@ -20,7 +20,7 @@ layout:
 
 # Snapshot
 
-Latest Snapshot available is at height: `27195`
+Latest Snapshot available is at height: `29363`
 
 ```markup
 sudo systemctl stop 0gd
@@ -47,20 +47,20 @@ sudo apt-get install wget liblz4-tool aria2 -y
 Download snapshot:
 
 ```markup
-aria2c -x5 -s4 http://snapshot.josephtran.xyz/0gchain_block_27195_26-06-2024-06-00.lz4
+aria2c -x5 -s4 http://snapshot.josephtran.xyz/0gchain_snapshot.lz4
 ```
 
 Extract snapshot:
 
 ```markup
-lz4 -c -d 0gchain_block_27195_26-06-2024-06-00.lz4  | tar -x -C $HOME/.0gchain
+lz4 -c -d 0gchain_snapshot.lz4  | tar -x -C $HOME/.0gchain
 ```
 
 Remove snapshot:
 
 ```
 cd $HOME
-rm -rf 0gchain_block_27195_26-06-2024-06-00.lz4
+rm -rf 0gchain_snapshot.lz4
 ```
 
 Move `priv_validator_state.json back:`
