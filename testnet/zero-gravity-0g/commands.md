@@ -195,6 +195,53 @@ local_height=$(0gchaind status | jq -r .sync_info.latest_block_height); network_
 echo $(0gchaind tendermint show-node-id)'@'$(curl -s ifconfig.me)':'$(cat $HOME/.0gchain/config/config.toml | sed -n '/Address to listen for incoming connection/{n;p;}' | sed 's/.*://; s/".*//')
 ```
 
+### Fetch RPC port:
+
+```
+RPC="http://$(wget -qO- eth0.me)$(grep -A 3 "\[rpc\]" $HOME/.0gchain/config/config.toml | egrep -o ":[0-9]+")" && echo $RPC
+```
+
+```
+curl $RPC/status
+```
+
+### Retrieving Node ID and Server IP Address Configuration:
+
+#### Your node:
+
+```
+echo $(0gchaind tendermint show-node-id)'@'$(curl -s ipv4.icanhazip.com)':'$(cat $HOME/.0gchain/config/config.toml | sed -n '/Address to listen for incoming connection/{n;p;}' | sed 's/.*://; s/".*//')
+```
+
+#### From RPC other node:
+
+```
+curl -s https://rpc.0gchain.josephtran.xyz/net_info | jq -r '.result.peers[] | select(.node_info.listen_addr | test("^tcp://0.0.0.0") | not) | "\(.node_info.id)@\(.node_info.listen_addr)"'
+```
+
+### Change RPC port:
+
+```markup
+NEW_RPC_LADDR="tcp://0.0.0.0:51657"
+NEW_EVM_ADDRESS="0.0.0.0:8545"
+NEW_WS_ADDRESS="0.0.0.0:8546"
+NEW_API="eth,txpool,personal,net,debug,web3"
+```
+
+```
+sed -i \
+    -e "s#^\(laddr = \)\"[^\"]*\"#\1\"${NEW_RPC_LADDR}\"#" \
+    $HOME/.0gchain/config/config.toml
+```
+
+```markup
+sed -i \
+    -e "s#^\(address = \)\"[^\"]*\"#\1\"${NEW_EVM_ADDRESS}\"#" \
+    -e "s#^\(ws-address = \)\"[^\"]*\"#\1\"${NEW_WS_ADDRESS}\"#" \
+    -e "s#^\(api = \)\"[^\"]*\"#\1\"${NEW_API}\"#" \
+    $HOME/.0gchain/config/app.toml
+```
+
 ### Remove node:
 
 {% hint style="danger" %}
@@ -254,28 +301,4 @@ sudo systemctl restart 0gd
 
 ```
 sudo journalctl -u 0gd -f --no-hostname -o cat
-```
-
-### Fetch RPC port:
-
-```
-RPC="http://$(wget -qO- eth0.me)$(grep -A 3 "\[rpc\]" $HOME/.0gchain/config/config.toml | egrep -o ":[0-9]+")" && echo $RPC
-```
-
-```
-curl $RPC/status
-```
-
-### Retrieving Node ID and Server IP Address Configuration:
-
-#### Your node:
-
-```
-echo $(0gchaind tendermint show-node-id)'@'$(curl -s ipv4.icanhazip.com)':'$(cat $HOME/.0gchain/config/config.toml | sed -n '/Address to listen for incoming connection/{n;p;}' | sed 's/.*://; s/".*//')
-```
-
-#### From RPC other node:
-
-```
-curl -s https://rpc.0gchain.josephtran.xyz/net_info | jq -r '.result.peers[] | select(.node_info.listen_addr | test("^tcp://0.0.0.0") | not) | "\(.node_info.id)@\(.node_info.listen_addr)"'
 ```
