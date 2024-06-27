@@ -36,7 +36,7 @@ Network Bandwidth: 100 Mbps
 
 ```
 sudo apt update && sudo apt upgrade -y
-sudo apt install curl git wget htop tmux build-essential jq make lz4 gcc unzip -y
+sudo apt install curl git wget htop tmux build-essential jq make lz4 aria2c gcc unzip -y
 ```
 
 ## 2. Install Go:
@@ -157,11 +157,15 @@ EOF
 
 ```
 junctiond tendermint unsafe-reset-all --home $HOME/.junction
-if curl -s --head curl http://download.josephtran.co/junction_27-06-2024-00-14.lz4 | head -n 1 | grep "200" > /dev/null; then
-  curl http://download.josephtran.co/junction_27-06-2024-00-14.lz4 | lz4 -dc - | tar -xf - -C $HOME/.junction
-    else
-  echo no have snap
+
+# Kiểm tra nếu tệp tồn tại và có thể download
+if aria2c -S http://download.josephtran.co/junction_27-06-2024-00-14.lz4 | grep -q "HTTP/1.1 200 OK"; then
+  aria2c -x5 -s4 -o junction_27-06-2024-00-14.lz4 http://download.josephtran.co/junction_27-06-2024-00-14.lz4
+  lz4 -dc junction_27-06-2024-00-14.lz4 | tar -xf - -C $HOME/.junction
+else
+  echo "No snapshot available."
 fi
+
 ```
 
 ## 14. Enable and Start service:
