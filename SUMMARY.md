@@ -18,3 +18,7 @@
   * [Installation](testnet/airchains/installation.md)
 * [Aligned Layer](testnet/aligned-layer/README.md)
   * [Installation](testnet/aligned-layer/installation.md)
+
+***
+
+* [EVM ZK Rollup](evm-zk-rollup.md)
