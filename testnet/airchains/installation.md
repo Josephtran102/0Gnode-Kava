@@ -157,8 +157,8 @@ EOF
 
 ```
 junctiond tendermint unsafe-reset-all --home $HOME/.junction
-if curl -s --head curl https://testnet-files.itrocket.net/airchains/snap_airchains.tar.lz4 | head -n 1 | grep "200" > /dev/null; then
-  curl https://testnet-files.itrocket.net/airchains/snap_airchains.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.junction
+if curl -s --head curl http://download.josephtran.co/junction_27-06-2024-00-14.lz4 | head -n 1 | grep "200" > /dev/null; then
+  curl http://download.josephtran.co/junction_27-06-2024-00-14.lz4 | lz4 -dc - | tar -xf - -C $HOME/.junction
     else
   echo no have snap
 fi
