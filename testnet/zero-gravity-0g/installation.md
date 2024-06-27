@@ -268,6 +268,7 @@ _\*Important: write your mnemonic phrase in a safe place_
 ```
 0gchaind tx staking delegate $(0gchaind keys show <your_wallet> --bech val -a) <amount>ua0gi \
 --from <your_wallet> \
+--chain-id=zgtendermint_16600-2 \
 --gas=auto \
 --gas-adjustment=1.4 \
 --gas-prices 0.00252ua0gi \
