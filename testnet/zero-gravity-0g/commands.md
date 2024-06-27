@@ -221,8 +221,10 @@ curl -s https://rpc.0gchain.josephtran.xyz/net_info | jq -r '.result.peers[] | s
 
 ### Change RPC port:
 
+Open for Client:&#x20;
+
 ```markup
-NEW_RPC_LADDR="tcp://0.0.0.0:51657"
+NEW_RPC_LADDR="tcp://0.0.0.0:26657"
 NEW_EVM_ADDRESS="0.0.0.0:8545"
 NEW_WS_ADDRESS="0.0.0.0:8546"
 NEW_API="eth,txpool,personal,net,debug,web3"
