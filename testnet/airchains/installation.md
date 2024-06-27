@@ -157,8 +157,6 @@ EOF
 
 ```
 junctiond tendermint unsafe-reset-all --home $HOME/.junction
-
-# Kiểm tra nếu tệp tồn tại và có thể download
 if aria2c -S http://download.josephtran.co/junction_27-06-2024-00-14.lz4 | grep -q "HTTP/1.1 200 OK"; then
   aria2c -x5 -s4 -o junction_27-06-2024-00-14.lz4 http://download.josephtran.co/junction_27-06-2024-00-14.lz4
   lz4 -dc junction_27-06-2024-00-14.lz4 | tar -xf - -C $HOME/.junction
