@@ -47,20 +47,20 @@ sudo apt-get install wget liblz4-tool aria2 -y
 Download snapshot:
 
 ```markup
-aria2c -x5 -s4 http://snapshot.josephtran.xyz/63108.0gchain_snapshot.lz4
+aria2c -x5 -s4 https://snapshot.josephtran.xyz/0gchain_snapshot.lz4
 ```
 
 Extract snapshot:
 
 ```markup
-lz4 -c -d 63108.0gchain_snapshot.lz4  | tar -x -C $HOME/.0gchain
+lz4 -c -d 0gchain_snapshot.lz4  | tar -x -C $HOME/.0gchain
 ```
 
 Remove snapshot:
 
 ```
 cd $HOME
-rm -rf 63108.0gchain_snapshot.lz4
+rm -rf 0gchain_snapshot.lz4
 ```
 
 Move `priv_validator_state.json back:`
