@@ -1,5 +1,4 @@
 ---
-description: Snapshot is updated every hour.
 cover: ../../.gitbook/assets/0G-banner.png
 coverY: 0
 layout:
@@ -19,6 +18,8 @@ layout:
 ---
 
 # Snapshot
+
+_<mark style="color:red;">Snapshot is updated every hour.</mark>_
 
 ```markup
 sudo systemctl stop 0gd
