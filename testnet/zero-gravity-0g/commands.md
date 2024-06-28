@@ -186,7 +186,7 @@ echo "0x$(0gchaind debug addr $(0gchaind keys show "wallet" -a) | grep hex | awk
 ### Block sync left:
 
 ```
-local_height=$(0gchaind status | jq -r .sync_info.latest_block_height); network_height=$(curl -s https://0g-rpc.chainad.org/status | jq -r .result.sync_info.latest_block_height); blocks_left=$((network_height - local_height)); echo "Your node height: $local_height"; echo "Network height: $network_height"; echo "Blocks left: $blocks_left"
+local_height=$(0gchaind status | jq -r .sync_info.latest_block_height); network_height=$(curl -s https://rpc.0gchain.josephtran.xyz/status | jq -r .result.sync_info.latest_block_height); blocks_left=$((network_height - local_height)); echo "Your node height: $local_height"; echo "Network height: $network_height"; echo "Blocks left: $blocks_left"
 ```
 
 ### Get node peers:
