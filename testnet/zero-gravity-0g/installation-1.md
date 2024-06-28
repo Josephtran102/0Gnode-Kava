@@ -20,6 +20,8 @@ layout:
 
 # Snapshot
 
+_<mark style="color:red;">Snapshot is down. We will update after the next 6 hours!</mark>_
+
 ```markup
 sudo systemctl stop 0gd
 ```
