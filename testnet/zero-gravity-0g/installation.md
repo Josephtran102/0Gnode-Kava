@@ -173,7 +173,7 @@ EOF
 ```markup
 sudo systemctl daemon-reload && \
 sudo systemctl enable 0gd && \
-sudo systemctl restart 0gd && \
+sudo systemctl start 0gd && \
 sudo journalctl -u 0gd -f -o cat
 ```
 
