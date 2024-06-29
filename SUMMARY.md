@@ -8,6 +8,7 @@
   * [Services](testnet/readme-1/services.md)
   * [Installation](testnet/zero-gravity-0g/installation.md)
   * [Snapshot](testnet/zero-gravity-0g/installation-1.md)
+  * [Live Peers](testnet/zero-gravity-0g/live-peers.md)
   * [Addrbook](testnet/zero-gravity-0g/addrbook.md)
   * [Commands](testnet/zero-gravity-0g/commands.md)
 * [Initia](testnet/initia/README.md)
