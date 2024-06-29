@@ -8,7 +8,7 @@ PEERS=$(curl -s -X POST https://rpc.0gchain.josephtran.xyz -H "Content-Type: app
 sed -i "s/^persistent_peers *=.*/persistent_peers = $PEERS/" "$HOME/.0gchain/config/config.toml"
 
 if [ $? -eq 0 ]; then
-    echo -e "Configuration file updated successfully with new peers. by \033[1;33mNodebrand\033[0m"
+    echo -e "Configuration file updated successfully with new peers. by \033[1;33mJosephTran.xyz\033[0m"
 else
     echo "Failed to update configuration file."
 fi
