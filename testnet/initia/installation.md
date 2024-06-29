@@ -104,10 +104,6 @@ sed -i \
     "$HOME/.initia/config/config.toml"
 ```
 
-{% hint style="warning" %}
-_<mark style="color:red;">\*You will have to wait a while until it syncs</mark>_
-{% endhint %}
-
 ## 8. Change ports (Optional)
 
 ```
@@ -138,10 +134,6 @@ sed -i \
     -e "/\[grpc-web\]/,/^\[/{s/\(address = \"\)\([^:]*\):\([0-9]*\)\(\".*\)/\1\2:$GRPC_WEB_PORT\4/}" \
     $HOME/.initia/config/app.toml
 ```
-
-{% hint style="warning" %}
-_<mark style="color:red;">You can see your node's latsest\_block\_height like below (Or you can check</mark> <mark style="color:red;"></mark><mark style="color:red;">`catching_up`</mark> <mark style="color:red;"></mark><mark style="color:red;">is</mark> <mark style="color:red;"></mark><mark style="color:red;">`false`</mark><mark style="color:red;">) If the block height is set, you can create validator.</mark>_
-{% endhint %}
 
 ## 9. Configure prunning to save storage (Optional)
 
@@ -194,6 +186,12 @@ sudo systemctl restart initiad && \
 sudo journalctl -u initiad -f -o cat
 ```
 
+P.S. Consider downloading snapshot&#x20;
+
+{% hint style="warning" %}
+_<mark style="color:red;">\*You will have to wait a while until it syncs</mark>_
+{% endhint %}
+
 ## 14. Create a wallet for your validator
 
 ```
@@ -214,6 +212,10 @@ Make sure your node is fully synced unless it won't work.
 ```
 initiad status | jq -r .sync_info
 ```
+
+{% hint style="warning" %}
+_<mark style="color:red;">You can see your node's latsest\_block\_height like below (Or you can check</mark> <mark style="color:red;"></mark><mark style="color:red;">`catching_up`</mark> <mark style="color:red;"></mark><mark style="color:red;">is</mark> <mark style="color:red;"></mark><mark style="color:red;">`false`</mark><mark style="color:red;">) If the block height is set, you can create validator.</mark>_
+{% endhint %}
 
 ```
 initiad q bank balances $(initiad keys show $WALLET_NAME -a) 

@@ -14,6 +14,7 @@
 * [Initia](testnet/initia/README.md)
   * [Services](testnet/initia/services.md)
   * [Installation](testnet/initia/installation.md)
+  * [Snapshot](testnet/initia/snapshot.md)
   * [Commands](testnet/initia/commands.md)
 * [Airchains](testnet/airchains/README.md)
   * [Installation](testnet/airchains/installation.md)
