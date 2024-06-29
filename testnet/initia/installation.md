@@ -186,7 +186,7 @@ sudo systemctl restart initiad && \
 sudo journalctl -u initiad -f -o cat
 ```
 
-P.S. Consider downloading snapshot&#x20;
+P.S. Consider downloading [snapshot](snapshot.md)&#x20;
 
 {% hint style="warning" %}
 _<mark style="color:red;">\*You will have to wait a while until it syncs</mark>_
